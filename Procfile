@@ -1,1 +1,1 @@
-web: gunicorn matrixsoftsoultions.wsgi
+web: gunicorn matrixsoftsolutions.wsgi
