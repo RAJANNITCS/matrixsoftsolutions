@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Matrixsoftsolutions</title>
+     
 
+    <!--------------owl-Carousel----------------------------->
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.theme.default.min.css" %}">
+    <!-------x-------owl-Carousel---------------x-------------->
     <!-----------Custom style------------------------>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     <!-----x------Custom style---------x--------------->
@@ -71,7 +76,54 @@
             <button class="btn">Explore</button>
         </div>
     </section>
+    
     <!-------x--------Site Title----------x------->
+    <!-------------------blog Carousel------------------------>
+    <section>
+        <div class="blog">
+            <div class="container">
+                <div class="owl-carousel owl-theme blog-post">
+                    <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                        <img src="{% static "images/Blog-post/post-1.jpg" %}" alt="post-1">
+                        <div class="blog-title">
+                            <h3>London Fashion week's continued the evolution</h3>
+                            <button class="btn btn-blog">Fashion</button>
+                            <span>2 minutes</span>
+                        </div>
+                    </div>
+                    <div class="blog-content" data-aos="fade-in" data-aos-delay="200">
+                        <img src="{% static "images/Blog-post/post-3.jpg" %}" alt="post-1">
+                        <div class="blog-title">
+                            <h3>London Fashion week's continued the evolution</h3>
+                            <button class="btn btn-blog">Fashion</button>
+                            <span>2 minutes</span>
+                        </div>
+                    </div>
+                    <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
+                        <img src="{% static "images/Blog-post/post-2.jpg" %}" alt="post-1">
+                        <div class="blog-title">
+                            <h3>London Fashion week's continued the evolution</h3>
+                            <button class="btn btn-blog">Fashion</button>
+                            <span>2 minutes</span>
+                        </div>
+                    </div>
+                    <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                        <img src="{% static "images/Blog-post/post-5.png" %}" alt="post-1">
+                        <div class="blog-title">
+                            <h3>London Fashion week's continued the evolution</h3>
+                            <button class="btn btn-blog">Fashion</button>
+                            <span>2 minutes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-navigation">
+                    <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                    <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--------x-----------blog Carousel-----------------x------->
   </main>
   <!----------x-------------Main Site Section------------x------------->
 
@@ -80,6 +132,9 @@
     <!-------- jquery library file--------------------->
     <script src="{% static "js/jquery3.4.1.min.js"%}"></script>
     <!----x---- jquery library file--------------x------->
+    <!--------------owl-Carousel-js----------------------------->
+    <script src="{% static "js/owl.carousel.min.js"%}"></script>
+    <!-------x-------owl-Carousel-js------------------x----------->
     <!---------Custom JavaScript--------------------->
     <script src="{% static "js/main.js"%}"></script>
     <!----x-----Custom JavaScript-------x-------------->
