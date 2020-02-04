@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 {%load staticfiles%}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static "css/demo.css" %}">
-    <title>Document</title>
+    <title>Matrixsoftsolutions</title>
+
+    <!-----------Custom style------------------------>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-----x------Custom style---------x--------------->
+
+    <!--------------------Custom Fontawsome--------------------------------->
+    <link rel="stylesheet" type="text/css" href="{% static "fontawesome/css/all.min.css" %}" />
+    <!----------x----------Custom Fontawsome----------x----------------------->
 </head>
+
 <body>
-    <h1>www.matrixsoftsolutions.com</h1>
+    <!---------------Navigation----------------------->
+     <nav class="nav">
+         <div class="nav-menu flex-row">
+             <div class="nav-brand">
+                 <a href="#" class="text-gray">Matrixsoftsolutions</a>
+             </div>
+             <div>
+                 <ul class="nav-items">
+                     <li class="nav-link">
+                         <a href="#">Home</a>
+                     </li>
+                     <li class="nav-link">
+                         <a href="#">Category</a>
+                     </li>
+                     <li class="nav-link">
+                         <a href="#">Archive</a>
+                     </li>
+                     <li class="nav-link">
+                         <a href="#">Pages</a>
+                     </li>
+                     <li class="nav-link">
+                         <a href="#">Contact Us</a>
+                     </li>
+                 </ul>
+             </div>
+             <div class="social text-gray">
+                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#"><i class="fab fa-instagram"></i></a>
+                 <a href="#"><i class="fab fa-twitter"></i></a>
+                 <a href="#"><i class="fab fa-youtube"></i></a>
+             </div>
+         </div>
+     </nav>
+    <!------x---------Navigation-------------x---------->
+
+    <!---------Custom JavaScript--------------------->
+    <script src="{% static "js/main.js"%}"></script>
+    <!----x-----Custom JavaScript-------x-------------->
 </body>
+
 </html>
