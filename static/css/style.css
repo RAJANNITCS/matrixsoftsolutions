@@ -25,7 +25,8 @@ html,body{
     
 
     /*----------------Gradients--Color-------------------------*/
-     --sky:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+     /* --sky:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); */
+     --sky:linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
 }
 
 
@@ -73,6 +74,9 @@ p{
     font-family: var(--Lexend);
     color: var(--text-light);
 }
+.text-gray{
+    font-family: var(--Lexend);
+}
 /*-----x--------Global Classes-------x---------*/
 
 
@@ -117,7 +121,7 @@ p{
     color: #a1c4cf;
 }
 .nav .nav-items .nav-link:hover{
-    background-color: var(--midnight);
+    background-color: #0b1a8c;
 }
 .nav .nav-items .nav-link:hover a{
     color: var(--white);
@@ -151,7 +155,7 @@ p{
 
 /*---------------Site title----------------------------*/
 main .site-title{
-    background: url('../images/Background-image.png');
+    background: url('../images/4.jpg');
     background-size: cover;
     height: 110vh;
     display: flex;
@@ -520,3 +524,7 @@ footer.footer .move-up span:hover{
 }
 
 /*        x      Viewport less then or equal to 520px       x     */
+
+/*-------------------------Add django Effect-------------------------------------*/
+
+/*----------x---------------Add django Effect--------------------x-----------------*/
