@@ -122,7 +122,7 @@ p{
     color: #a1c4cf;
 }
 .nav .nav-items .nav-link:hover{
-    background-color: #0b1a8c;
+    background-color: #3b3935;
 }
 .nav .nav-items .nav-link:hover a{
     color: var(--white);
@@ -151,6 +151,7 @@ p{
 .text-gray{
     color: var(--text-gray);
 }
+/*------------x----------Navbar------------------x-------*/
 
 /*-------------main content-----------------------*/
 
@@ -526,6 +527,5 @@ footer.footer .move-up span:hover{
 
 /*        x      Viewport less then or equal to 520px       x     */
 
-/*-------------------------Add django Effect-------------------------------------*/
 
-/*----------x---------------Add django Effect--------------------x-----------------*/
+

@@ -13,5 +13,17 @@ def index(request):
 #-----------------Post list view-----------------------------
 def post_list_view(request):
     post_list=Post.objects.all()
-    return render(request,'blog/post_list.html',{'post_list':post_list})
+    return render(request,'HtmlFile/post_list.html',{'post_list':post_list})
 #--------x---------Post list view----------------x-------------
+
+
+#------------------About us-------------------------------
+def about(request):
+    return render(request,'HtmlFile/about.html')
+#---------x---------About us--------------------x-----------
+
+
+#----------------------Downloads------------------------------
+def Download(request):
+    return render(request,'HtmlFile/download.html')
+#----------x------------Downloads----------------x--------------

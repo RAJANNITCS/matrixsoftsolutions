@@ -19,4 +19,7 @@ from matrixApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('post_list', views.post_list_view),
+    path('about', views.about),
+    path('download', views.Download),
 ]
