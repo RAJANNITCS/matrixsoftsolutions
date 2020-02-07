@@ -73,46 +73,10 @@
     <!-----------------------Main Site Section------------------------->
     <main>
 
-        <!---------------Site Title----------------->
-        <section class="post_list_site_title">
-            <div class="post_list_site_background" data-aos="fade-up" data-aos-delay="100">
-                <h3>Blogspot</h3>
-                <h1>Make The Best What You Have</h1>
-                <button class="btn">Explore</button>
-            </div>
-        </section>
-
-        <!-------x--------Site Title----------x------->
-        <!-------------------blog Carousel------------------------>
-       
-        <section>
-            <div class="blog" id="Blogs">
-                <div class="container">
-                    <div class="owl-carousel owl-theme blog-post">
-                        {%for post in post_list%}
-                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                            <img src="{% static "images/Blog-post/post-1.jpg" %}" alt="post-1">
-                            <div class="blog-title">
-                                <a href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
-                                <button class="btn btn-blog">Fashion</button>
-                                <span>{{post.publish}}</span>
-                            </div>
-                        </div>
-                        {%endfor%}
-                    </div> 
-                 <div class="owl-navigation">
-                        <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
-                        <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--------x-----------blog Carousel-----------------x------->
                 <!------------------------Site Content----------------------->
                 <section class="container">
                     <div class="site-content">
                         <div class="posts">
-                            {%for post in post_list%}
                             <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
                                 <div class="post-image">
                                     <div>
@@ -125,57 +89,14 @@
                                     </div>
                                 </div>
                                 <div class="post-title">
-                                    <a href="{{post.get_absolute_url}}">{{post.title}}</a>
-                                    <p>{{post.body|truncatewords:40|linebreaks}}
+                                    <a href="#">{{post.title}}</a>
+                                    <p>{{post.body|linebreaks}}
                                     </p>
-                                    <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
                                 </div>
                             </div>
-                            <hr>
-                            {%endfor%}
-                            <div class="pagination flex-row">
-                                {%if post_list.has_previous%}
-                                <a href="?page={{post_list.previous_page_number}}"><i class="fas fa-chevron-left"></i></a>
-                                {%endif%}
 
-                                {% for num in post_list.paginator.page_range%}
-                                {% if post_list.number == num %}
-                                <a href="?page={{num}}" class="pages">{{num}}</a>
-                                {% elif num >  post_list.number|add:'-3' and num < post_list.number|add:'3' %}
-                                <a href="?page={{num}}" class="pages">{{num}}</a>
-                                {% endif %}
-                                {%endfor%}
-                                {%if post_list.has_next%}
-                                <a href="?page={{post_list.next_page_number}}"><i class="fas fa-chevron-right"></i></a>
-                                {%endif%}
-                            </div>
                         </div>
                         <aside class="sidebar">
-                            <div class="category">
-                                <h2 id="Category">Category</h2>
-                                <ul class="category-list">
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="100">
-                                        <a href="#">Artificial Intelligence</a>
-                                        <span>(05)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="200">
-                                        <a href="#">Data Science</a>
-                                        <span>(02)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="300">
-                                        <a href="#">Programming Languages</a>
-                                        <span>(07)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="400">
-                                        <a href="#">Softwares & Tools</a>
-                                        <span>(01)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="500">
-                                        <a href="#">Techniques</a>
-                                        <span>(08)</span>
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="popular-post">
                                 <h2>Popular Post</h2>
                                 <div class="post-content" data-aos="flip-up" data-aos-delay="200">
@@ -256,13 +177,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
-                                <h2>Newsletter</h2>
-                                <div class="form-element">
-                                    <input type="text" class="input-element" placeholder="Email">
-                                    <button class="btn form-btn">Subscribe</button>
-                                </div>
-                            </div>
+                            
                             <div class="popular-tags">
                                 <h2>Popular Tags</h2>
                                 <div class="tags flex-row">
