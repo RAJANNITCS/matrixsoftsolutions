@@ -14,7 +14,7 @@ def index(request):
 #-----------------Post list view-----------------------------
 def post_list_view(request):
     post_list=Post.objects.all()
-    paginator=Paginator(post_list,2)
+    paginator=Paginator(post_list,4)
     page_number=request.GET.get('page')
     try:
         post_list=paginator.page(page_number)
