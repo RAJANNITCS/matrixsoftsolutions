@@ -90,7 +90,7 @@ main .post_list_site_title{
    
 }
 main .post_list_site_title .post_list_site_background{
-    padding-top: 10rem;
+    padding-top: 6rem;
     text-align: center;
     color: var(--text-gray);
 }
