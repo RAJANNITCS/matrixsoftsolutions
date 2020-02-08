@@ -1,6 +1,8 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from matrixApp.models import Post
+from django.core.mail import send_mail
+
 # Create your views here.
 
 
@@ -22,6 +24,12 @@ def post_list_view(request):
         post_list=paginator.page(1)
     except EmptyPage:
         post_list=paginator.page(paginator.num_pages)
+    if request.method=="POST":
+        mailid = request.POST['mailid']
+        subject='thanks notes'
+        massage='thanks for visiting our website'
+        send_mail(subject,massage,'www.matrixsoftsolutions.com',[mailid])
+        return redirect('/post_list')
     return render(request,'HtmlFile/post_list.html',{'post_list':post_list})
 #--------x---------Post list view----------------x-------------
 
@@ -34,6 +42,10 @@ def post_detail_view(request,year,month,day,post):
                                 publish__day=day)
     return render(request,'HtmlFile/post_detail.html',{'post':post})
 #----------x-----------Post detail view--------------x----------
+
+#---------------------Send mail---------------------------
+
+#----------x-----------Send mail----------------x-----------
 
 #------------------About us-------------------------------
 def about(request):

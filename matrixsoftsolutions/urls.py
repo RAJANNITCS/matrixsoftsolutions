@@ -22,5 +22,6 @@ urlpatterns = [
     path('post_list/', views.post_list_view),
     path('about/', views.about),
     path('download/', views.Download),
+    # path('mail/', views.mail_send_view),
     path('<int:year>/<int:month>/<int:day>/<str:post>/', views.post_detail_view,name='post_detail'), 
 ]
