@@ -4,7 +4,7 @@ from matrixApp.models import Post
 
 #-------------------Register admin --------------------------
 class PostAdmin(admin.ModelAdmin):
-    list_display=['id','title','slug','author','body','publish','created','updated','status']
+    list_display=['id','title','slug','author','body','Image','publish','created','updated','status']
     list_filter=['status','author','created']
     search_fields=('title','body')
     prepopulated_fields={'slug':('title',)}

@@ -91,7 +91,7 @@
                     <div class="owl-carousel owl-theme blog-post">
                         {%for post in post_list%}
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                            <img src="{% static "images/Blog-post/post-1.jpg" %}" alt="post-1">
+                            <img src="{{post.Image.url}}" alt="post-1" height="300" width="250">
                             <div class="blog-title">
                                 <a href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
                                 <button class="btn btn-blog">Fashion</button>
@@ -116,7 +116,7 @@
                             <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
                                 <div class="post-image">
                                     <div>
-                                        <img src="{% static "images/Blog-post/blog3.png" %}" class="img" alt="blog1">
+                                        <img src="{{post.Image.url}}" class="img" alt="blog1">
                                     </div>
                                     <div class="post-info">
                                         <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author|title}}</span>
