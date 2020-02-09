@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'matrixApp',
     "django_static_fontawesome",
+    'taggit'
 ]
 
 MIDDLEWARE = [

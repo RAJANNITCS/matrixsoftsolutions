@@ -1,5 +1,5 @@
 from django.contrib import admin
-from matrixApp.models import Post
+from matrixApp.models import Post,Comment
 
 
 #-------------------Register admin --------------------------
@@ -12,7 +12,12 @@ class PostAdmin(admin.ModelAdmin):
     ordering=['status','publish']
     date_hierarchy='publish'
     
+    
+class CommentAdmin(admin.ModelAdmin):
+    list_display=['name','email','body','post','created','updated','active']
+    list_filter=('active','created','updated')
+    search_fields=('name','email','body')
 #----------xx---------Register admin --------------x------------
 
-
+admin.site.register(Comment,CommentAdmin)
 admin.site.register(Post,PostAdmin)

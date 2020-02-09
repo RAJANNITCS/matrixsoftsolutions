@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{%load blog_tags%}
 {%load staticfiles%}
 <html lang="en">
 
@@ -91,7 +92,7 @@
                     <div class="owl-carousel owl-theme blog-post">
                         {%for post in post_list%}
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                            <img src="{{post.Image.url}}" alt="post-1" height="300" width="250">
+                            <img src="{{post.Image.url}}" alt="post-1" height="200" width="150">
                             <div class="blog-title">
                                 <a href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
                                 <button class="btn btn-blog">Fashion</button>
@@ -116,7 +117,7 @@
                             <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
                                 <div class="post-image">
                                     <div>
-                                        <img src="{{post.Image.url}}" class="img" alt="blog1">
+                                        <img src="{{post.Image.url}}" class="img" alt="blog1" width="400" height="450">
                                     </div>
                                     <div class="post-info">
                                         <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author|title}}</span>
@@ -126,6 +127,11 @@
                                 </div>
                                 <div class="post-title">
                                     <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                                    <p>Tags:
+                                        {%for tag in post.tags.all%}
+                                        <a href="{% url 'post_list_by_tag_name' tag.slug %}">{{tag.name}}</a>
+                                        {%endfor%}
+                                    </p>
                                     <p>{{post.body|truncatewords:40|linebreaks}}
                                     </p>
                                     <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
@@ -177,7 +183,8 @@
                                 </ul>
                             </div>
                             <div class="popular-post">
-                                <h2>Popular Post</h2>
+                                <h2>Popular Post :{% total_posts%}</h2>
+                                 <h2>Latest Post:</h2>{%show_letest_post%}
                                 <div class="post-content" data-aos="flip-up" data-aos-delay="200">
                                     <div class="post-image">
                                         <div>

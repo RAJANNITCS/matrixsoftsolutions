@@ -1,7 +1,9 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from matrixApp.models import Post
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from matrixApp.forms import CommentForm
+from taggit.models import Tag
 
 # Create your views here.
 
@@ -14,8 +16,12 @@ def index(request):
 
 
 #-----------------Post list view-----------------------------
-def post_list_view(request):
+def post_list_view(request,tag_slug=None):
     post_list=Post.objects.all()
+    tag=None 
+    if tag_slug:
+        tag=get_object_or_404(Tag,slug=tag_slug)
+        post_list=post_list.filter(tags__in=[tag])
     paginator=Paginator(post_list,4)
     page_number=request.GET.get('page')
     try:
@@ -30,7 +36,7 @@ def post_list_view(request):
         massage='thanks for visiting our website'
         send_mail(subject,massage,'www.matrixsoftsolutions.com',[mailid])
         return redirect('/post_list')
-    return render(request,'HtmlFile/post_list.html',{'post_list':post_list})
+    return render(request,'HtmlFile/post_list.html',{'post_list':post_list,'tag':tag})
 #--------x---------Post list view----------------x-------------
 
 #---------------------Post detail view------------------------
@@ -40,12 +46,19 @@ def post_detail_view(request,year,month,day,post):
                                 publish__year=year,
                                 publish__month=month,
                                 publish__day=day)
-    return render(request,'HtmlFile/post_detail.html',{'post':post})
+    comments=post.comments.filter(active=True)
+    csubmit=False
+    if request.method=='POST':
+        form=CommentForm(request.POST)
+        if form.is_valid():
+            new_comment=form.save(commit=False)
+            new_comment.post=post
+            new_comment.save()
+            csubmit=True
+    else:
+        form=CommentForm()
+    return render(request,'HtmlFile/post_detail.html',{'post':post,'form':form,'csubmit':csubmit,'comments':comments})
 #----------x-----------Post detail view--------------x----------
-
-#---------------------Send mail---------------------------
-
-#----------x-----------Send mail----------------x-----------
 
 #------------------About us-------------------------------
 def about(request):

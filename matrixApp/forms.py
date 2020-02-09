@@ -1,3 +1,8 @@
+from matrixApp.models import Comment
 from django import forms
-class EmailSendForm(forms.Form):
-    to=forms.EmailField()
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model=Comment
+        fields=('name','email','body')
