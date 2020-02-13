@@ -10,3 +10,7 @@ def total_posts():
 def show_letest_post():
     latest_posts=Post.objects.order_by('-publish')[:3]
     return {'latest_posts':latest_posts}
+
+# from django.db.models import Count
+# def get_most_commented_posts(count=5):
+    
