@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('post_list/', views.post_list_view),
+    path('fileManager/', views.soft_detail),
+    path('vpadNotepad/', views.soft_detail1),
     path('about/', views.about),
     path('download/', views.Download),
     path('/tag/<str:tag_slug>/', views.post_list_view,name='post_list_by_tag_name'),
