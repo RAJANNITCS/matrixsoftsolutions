@@ -63,7 +63,7 @@ def post_list_view(request,tag_slug=None):
     paginator=Paginator(post_list,6)
     page_number=request.GET.get('page')
     count=Post.objects.count()
-    latest_posts=Post.objects.order_by('-publish')[:5]
+    latest_posts=Post.objects.order_by('-publish')[:8]
     
     try:
         post_list=paginator.page(page_number)
