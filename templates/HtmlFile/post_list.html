@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{%load blog_tags%}
 {%load staticfiles%}
 <html lang="en">
 
@@ -84,267 +83,223 @@
         </section>
 
         <!-------x--------Site Title----------x------->
-        <!-------------------blog Carousel------------------------>
-       
-        <section>
-            <div class="blog" id="Blogs">
-                <div class="container">
-                    <div class="owl-carousel owl-theme blog-post">
-                        {%for post in post_list%}
-                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                            <img src="{{post.Image.url}}" alt="post-1" height="200" width="150">
-                            <div class="blog-title">
-                                <a href="{{post.get_absolute_url}}"><h3>{{post.title}}</h3></a>
-                                <button class="btn btn-blog">Fashion</button>
-                                <span>{{post.publish}}</span>
-                            </div>
-                        </div>
-                        {%endfor%}
-                    </div> 
-                 <div class="owl-navigation">
-                        <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
-                        <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--------x-----------blog Carousel--------.---------x------->
-                <!------------------------Site Content----------------------->
-                <section class="container">
-                    <div class="site-content">
-                        <div class="posts">
-                            {%for post in post_list%}
-                            <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="post-image">
-                                    <div>
-                                        <img src="{{post.Image.url}}" class="img" alt="blog1" width="400" height="450">
-                                    </div>
-                                    <div class="post-info">
-                                        <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author|title}}</span>
-                                        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.publish}}</span>
-                                        <span>7 Commets</span>
-                                    </div>
-                                </div>
-                                <div class="post-title">
-                                    <a href="{{post.get_absolute_url}}">{{post.title}}</a>
-                                    <p>Tags:
-                                        {%for tag in post.tags.all%}
-                                        <a href="{% url 'post_list_by_tag_name' tag.slug %}">{{tag.name}}</a>
-                                        {%endfor%}
-                                    </p>
-                                    <p>{{post.body|truncatewords:40|linebreaks}}
-                                    </p>
-                                    <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
-                                </div>
-                            </div>
-                            <hr>
+      <!-------------------blog Carousel------------------------>
+
+      <section>
+        <div class="blog" id="Blogs">
+            <div class="container">
+                <div class="owl-carousel owl-theme blog-post">
+                    {%for post in latest_posts%}
+                    <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                        <img src="{{post.Image.url}}" alt="post-1" height="200" width="150">
+                        <div class="blog-title">
+                            <a href="{{post.get_absolute_url}}">
+                                <h3>{{post.title}}</h3>
+                            </a>
+                            {%for tag in post.tags.all|slice:":1"%}
+                            <a href="{% url 'post_list_by_tag_name' tag.slug %}"><button
+                                    class="btn btn-blog">{{tag.name}}</button></a>
                             {%endfor%}
-                            <div class="pagination flex-row">
-                                {%if post_list.has_previous%}
-                                <a href="?page={{post_list.previous_page_number}}"><i class="fas fa-chevron-left"></i></a>
-                                {%endif%}
+                            <span>{{post.publish}}</span>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="owl-navigation">
+                    <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                    <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--------x-----------blog Carousel--------.---------x------->
+    <!------------------------Site Content----------------------->
+    <section class="container">
+        <div class="site-content">
+            <div class="posts">
 
-                                {% for num in post_list.paginator.page_range%}
-                                {% if post_list.number == num %}
-                                <a href="?page={{num}}" class="pages">{{num}}</a>
-                                {% elif num >  post_list.number|add:'-3' and num < post_list.number|add:'3' %}
-                                <a href="?page={{num}}" class="pages">{{num}}</a>
-                                {% endif %}
-                                {%endfor%}
-                                {%if post_list.has_next%}
-                                <a href="?page={{post_list.next_page_number}}"><i class="fas fa-chevron-right"></i></a>
-                                {%endif%}
+                {% for post in post_list%}
+
+                <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="post-image">
+                        <div>
+                            <img src="{{post.Image.url}}" class="img" alt="blog1" width="400" height="450">
+                        </div>
+                        <div class="post-info">
+                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author|title}}</span>
+                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.publish}}</span>
+
+                            <span>{{mydic.1}}</span>
+
+
+
+                        </div>
+                    </div>
+                    <div class="post-title">
+                        <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                        <p>Tags:
+                            {%for tag in post.tags.all%}
+                            <a href="{% url 'post_list_by_tag_name' tag.slug %}">{{tag.name}}</a>
+                            {%endfor%}
+
+                        </p>
+                        <p>{{post.body|truncatewords:40|linebreaks}}
+                        </p>
+                        <a href="{{post.get_absolute_url}}"><button class="btn post-btn">Read More&nbsp;<i
+                                    class="fas fa-arrow-right"></i></button></a>
+                    </div>
+                </div>
+                <hr>
+                {%endfor%}
+                <div class="pagination flex-row">
+                    {%if post_list.has_previous%}
+                    <a href="?page={{post_list.previous_page_number}}"><i class="fas fa-chevron-left"></i></a>
+                    {%endif%}
+
+                    {% for num in post_list.paginator.page_range%}
+                    {% if post_list.number == num %}
+                    <a href="?page={{num}}" class="pages">{{num}}</a>
+                    {% elif num >  post_list.number|add:'-3' and num < post_list.number|add:'3' %}
+                    <a href="?page={{num}}" class="pages">{{num}}</a>
+                    {% endif %}
+                    {%endfor%}
+                    {%if post_list.has_next%}
+                    <a href="?page={{post_list.next_page_number}}"><i class="fas fa-chevron-right"></i></a>
+                    {%endif%}
+                </div>
+            </div>
+            <aside class="sidebar">
+                <div class="category">
+                    <h2 id="Category">Category</h2>
+                    <ul class="category-list">
+                        <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                            <a href="#">Artificial Intelligence</a>
+                            <span>(05)</span>
+                        </li>
+                        <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                            <a href="#">Data Science</a>
+                            <span>(02)</span>
+                        </li>
+                        <li class="list-items" data-aos="fade-left" data-aos-delay="300">
+                            <a href="#">Programming Languages</a>
+                            <span>(07)</span>
+                        </li>
+                        <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                            <a href="#">Softwares & Tools</a>
+                            <span>(01)</span>
+                        </li>
+                        <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                            <a href="#">Techniques</a>
+                            <span>(08)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="popular-post">
+
+                    <h2>Letest Post:</h2>
+
+                    {%for post in latest_posts %}
+                    <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="{{post.Image.url}}" class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i
+                                        class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.publish}}</span>
+                                <span>{{mydic.1}}</span>
                             </div>
                         </div>
-                        <aside class="sidebar">
-                            <div class="category">
-                                <h2 id="Category">Category</h2>
-                                <ul class="category-list">
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="100">
-                                        <a href="#">Artificial Intelligence</a>
-                                        <span>(05)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="200">
-                                        <a href="#">Data Science</a>
-                                        <span>(02)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="300">
-                                        <a href="#">Programming Languages</a>
-                                        <span>(07)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="400">
-                                        <a href="#">Softwares & Tools</a>
-                                        <span>(01)</span>
-                                    </li>
-                                    <li class="list-items" data-aos="fade-left" data-aos-delay="500">
-                                        <a href="#">Techniques</a>
-                                        <span>(08)</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="popular-post">
-                                <h2>Popular Post :{% total_posts%}</h2>
-                                 <h2>Latest Post:</h2>{%show_letest_post%}
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="200">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-1.jpg" %}" class="img" alt="blog1">
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="300">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-2.jpg" %}" class="img" alt="blog1">
-        
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="400">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-3.jpg" %}" class="img" alt="blog1">
-        
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="500">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-4.jpg" %}" class="img" alt="blog1">
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="600">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-5.jpg" %}" class="img" alt="blog1">
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
-                                <h2>Newsletter</h2>
-                                <form method="POST">
-                                    <div class="form-element">
-                                        {%csrf_token%}
-                                        <input type="text" class="input-element" name="mailid" placeholder="Email">
-                                        <button class="btn form-btn">Subscribe</button>
-                                    </div>
-                                </form>
-                                
-                            </div>
-                            <div class="popular-tags">
-                                <h2>Popular Tags</h2>
-                                <div class="tags flex-row">
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="200">technology</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="300">travel</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="400">illustration</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="500">design</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="600">lifestyle</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="700">love</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="800">project</span>
-                                </div>
-                            </div>
-                        </aside>
+                        <div class="post-title">
+                            <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                        </div>
                     </div>
-                </section>
-                <!------------x------------Site Content------------------x----->
-        </main>
-    <!-----------------------Main Site Section------------------------->
+                    {%endfor%}
 
-    <!--------------------------------Footer----------------------------->
-     <footer class="footer">
-        <div class="container">
-            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
-                <h2>About us</h2>
-                <p>Rajan Singh</p>
-                <p>rajan.nit.cs@gmail.com</p>
-                
-            </div>
-            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
-                <h2>Newsletter</h2>
-                <p>Stay update with our latest</p>
+                    <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                        <h2>Newsletter</h2>
+                        <form method="POST">
+                            <div class="form-element">
+                                {%csrf_token%}
+                                <input type="text" class="input-element" name="mailid" placeholder="Email">
+                                <button class="btn form-btn">Subscribe</button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="popular-tags">
+                        <h2>Popular Tags</h2>
+                        <div class="tags flex-row">
+                            {%for tag in tag|slice:":15"%}
+                            <span class="tag" data-aos="flip-up" data-aos-delay="100"><a
+                                    href="/post_list">{{tag.name}}</a></span>
+                            {%endfor%}
+                        </div>
+                    </div>
+            </aside>
+        </div>
+    </section>
+    <!------------x------------Site Content------------------x----->
+
+</main>
+<!----------x-------------Main Site Section------------x------------->
+
+
+<!--------------------------------Footer----------------------------->
+<footer class="footer">
+    <div class="container">
+        <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+            <h2>About us</h2>
+            <p>Rajan Singh</p>
+            <p>rajan.nit.cs@gmail.com</p>
+
+        </div>
+        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+            <h2>Newsletter</h2>
+            <p>Stay update with our latest</p>
+            <form method="POST">
                 <div class="form-element">
-                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                    {%csrf_token%}
+                    <input type="text" placeholder="Email" name="mailid">
+                    <button type="submit" class="pointer"><i class="fas fa-chevron-right"></i></button>
                 </div>
+            </form>
+
+        </div>
+        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+            <h2>Twitter</h2>
+            <div class="flex-row">
+                {%for post in post_list %}
+                <img src="{{post.Image.url}}" alt="instagram1">
+                {%endfor%}
             </div>
-            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-                <h2>Instagram</h2>
-                <div class="flex-row">
-                    <img src="{% static "images/instagram/thumb-card3.png" %}" alt="instagram1">
-                    <img src="{% static "images/instagram/thumb-card4.png" %}" alt="instagram2">
-                    <img src="{% static "images/instagram/thumb-card5.png" %}" alt="instagram3">
-                </div>
-                <div class="flex-row">
-                    <img src="{% static "images/instagram/thumb-card4.png" %}" alt="instagram4">
-                    <img src="{% static "images/instagram/thumb-card5.png" %}" alt="instagram5">
-                    <img src="{% static "images/instagram/thumb-card6.png" %}" alt="instagram6">
-                </div>
-            </div>
-            <div class="follow" data-aos="fade-left" data-aos-delay="200">
-                <h2>Follow us</h2>
-                <p>Let us be Social</p>
-                <div>
-                    <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+
+        </div>
+        <div class="follow" data-aos="fade-left" data-aos-delay="200">
+            <h2>Follow us</h2>
+            <p>Let us be Social</p>
+            <div>
+                <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i class="fab fa-stack-overflow"></i></a>
-                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
+                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
+                        class="fab fa-stack-overflow"></i></a>
+                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber"
+                    target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <div class="rights flex-row">
-            <h4 class="text-gray">
-                Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
-                <a href="" target="_black"><i class="fab fa-youtube"></i>
-                   </a>
-            </h4>
-        </div>
-        <div class="move-up">
-            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
-        </div>
-    </footer>
+    </div>
+    <div class="rights flex-row">
+        <h4 class="text-gray">
+            Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
+            <a href="" target="_black"><i class="fab fa-youtube"></i>
+            </a>
+        </h4>
+    </div>
+    <div class="move-up">
+        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+    </div>
+</footer>
     <!--------x------------------------Footer--------------x--------------->
 
 
