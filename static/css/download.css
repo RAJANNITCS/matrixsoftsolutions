@@ -117,7 +117,13 @@ body {
 .xlarge-font {
   font-size: 64px
 }
+.dlarge-font {
+  font-size: 25px;
+}
 
+.dxlarge-font {
+  font-size: 40px
+}
 .button {
   border: none;
   color: white;

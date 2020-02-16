@@ -166,3 +166,67 @@ def Download(request):
         return redirect('/download')
     return render(request,'HtmlFile/download.html',{'post_list':post_list,'tag':tag,'latest_posts':latest_posts,'count':count,'mydic':my_dic})
 #----------x------------Downloads----------------x--------------
+
+
+#-------------------------documentation detaile----------------------------------------
+def soft_detail(request):
+    post_list=Post.objects.all()
+    my_list=[]
+    for i in post_list:
+        comments=i.comments.filter(active=True)
+        comments=comments.count()
+        my_list.append(comments)
+       
+    my_dic={i:my_list[i] for i in range(0,len(my_list))}   
+    print(my_dic)
+    tag = Tag.objects.all()
+    paginator=Paginator(post_list,6)
+    page_number=request.GET.get('page')
+    count=Post.objects.count()
+    latest_posts=Post.objects.order_by('-publish')[:5]
+    
+    try:
+        post_list=paginator.page(page_number)
+    except PageNotAnInteger:
+        post_list=paginator.page(1)
+    except EmptyPage:
+        post_list=paginator.page(paginator.num_pages)
+    if request.method=="POST":
+        mailid = request.POST['mailid']
+        subject='thanks notes'
+        massage='thanks for visiting our website'
+        send_mail(subject,massage,'www.matrixsoftsolutions.com',[mailid])
+        return redirect('/soft_detail')
+    return render(request,'HtmlFile/file_m.html',{'post_list':post_list,'tag':tag,'latest_posts':latest_posts,'count':count,'mydic':my_dic})
+
+
+def soft_detail1(request):
+    post_list=Post.objects.all()
+    my_list=[]
+    for i in post_list:
+        comments=i.comments.filter(active=True)
+        comments=comments.count()
+        my_list.append(comments)
+       
+    my_dic={i:my_list[i] for i in range(0,len(my_list))}   
+    print(my_dic)
+    tag = Tag.objects.all()
+    paginator=Paginator(post_list,6)
+    page_number=request.GET.get('page')
+    count=Post.objects.count()
+    latest_posts=Post.objects.order_by('-publish')[:5]
+    
+    try:
+        post_list=paginator.page(page_number)
+    except PageNotAnInteger:
+        post_list=paginator.page(1)
+    except EmptyPage:
+        post_list=paginator.page(paginator.num_pages)
+    if request.method=="POST":
+        mailid = request.POST['mailid']
+        subject='thanks notes'
+        massage='thanks for visiting our website'
+        send_mail(subject,massage,'www.matrixsoftsolutions.com',[mailid])
+        return redirect('/soft_detail')
+    return render(request,'HtmlFile/file_m.html',{'post_list':post_list,'tag':tag,'latest_posts':latest_posts,'count':count,'mydic':my_dic})
+#---------x----------------documentation detaile--------------------x--------------------
