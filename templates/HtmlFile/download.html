@@ -141,58 +141,62 @@
   </div>
 
 <!-----------x------------Main Site Section----------------x--------->
-    <!--------------------------------Footer----------------------------->
-     <footer class="footer">
-        <div class="container">
-            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
-                <h2>About us</h2>
-                <p>Rajan Singh</p>
-                <p>rajan.nit.cs@gmail.com</p>
-                
-            </div>
-            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
-                <h2>Newsletter</h2>
-                <p>Stay update with our latest</p>
+  <!--------------------------------Footer----------------------------->
+  <footer class="footer">
+    <div class="container">
+        <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+            <h2>About us</h2>
+            <p>Rajan Singh</p>
+            <p>rajan.nit.cs@gmail.com</p>
+
+        </div>
+        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+            <h2>Newsletter</h2>
+            <p>Stay update with our latest</p>
+            <form method="POST">
                 <div class="form-element">
-                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                    {%csrf_token%}
+                    <input type="text" placeholder="Email" name="mailid">
+                    <button type="submit" class="pointer"><i class="fas fa-chevron-right"></i></button>
                 </div>
+            </form>
+
+        </div>
+        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+            <h2>Twitter</h2>
+            <div class="flex-row">
+                {%for post in post_list %}
+                <img src="{{post.Image.url}}" alt="instagram1">
+                {%endfor%}
             </div>
-            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-                <h2>Instagram</h2>
-                <div class="flex-row">
-                    <img src="{% static "images/instagram/thumb-card3.png" %}" alt="instagram1">
-                    <img src="{% static "images/instagram/thumb-card4.png" %}" alt="instagram2">
-                    <img src="{% static "images/instagram/thumb-card5.png" %}" alt="instagram3">
-                </div>
-                <div class="flex-row">
-                    <img src="{% static "images/instagram/thumb-card4.png" %}" alt="instagram4">
-                    <img src="{% static "images/instagram/thumb-card5.png" %}" alt="instagram5">
-                    <img src="{% static "images/instagram/thumb-card6.png" %}" alt="instagram6">
-                </div>
-            </div>
-            <div class="follow" data-aos="fade-left" data-aos-delay="200">
-                <h2>Follow us</h2>
-                <p>Let us be Social</p>
-                <div>
-                    <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i class="fab fa-stack-overflow"></i></a>
-                    <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
+
+        </div>
+        <div class="follow" data-aos="fade-left" data-aos-delay="200">
+            <h2>Follow us</h2>
+            <p>Let us be Social</p>
+            <div>
+                <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
+                        class="fab fa-stack-overflow"></i></a>
+                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber"
+                    target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <div class="rights flex-row">
-            <h4 class="text-gray">
-                Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
-                <a href="" target="_black"><i class="fab fa-youtube"></i>
-                   </a>
-            </h4>
-        </div>
-        <div class="move-up">
-            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
-        </div>
-    </footer>
-    <!--------x------------------------Footer--------------x--------------->
+    </div>
+    <div class="rights flex-row">
+        <h4 class="text-gray">
+            Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
+            <a href="" target="_black"><i class="fab fa-youtube"></i>
+            </a>
+        </h4>
+    </div>
+    <div class="move-up">
+        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+    </div>
+</footer>
+<!--------x------------------------Footer--------------x--------------->
 
 
     <!-------- jquery library file--------------------->
