@@ -228,5 +228,5 @@ def soft_detail1(request):
         massage='thanks for visiting our website'
         send_mail(subject,massage,'www.matrixsoftsolutions.com',[mailid])
         return redirect('/soft_detail')
-    return render(request,'HtmlFile/file_m.html',{'post_list':post_list,'tag':tag,'latest_posts':latest_posts,'count':count,'mydic':my_dic})
+    return render(request,'HtmlFile/file_m1.html',{'post_list':post_list,'tag':tag,'latest_posts':latest_posts,'count':count,'mydic':my_dic})
 #---------x----------------documentation detaile--------------------x--------------------

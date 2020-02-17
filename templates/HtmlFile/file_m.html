@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blogs</title>
+    <title>File_manager Documentation</title>
 
 
     <!--------------owl-Carousel----------------------------->
@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="{% static "css/aos.css" %}">
     <!-------x---------Aos library---------------x-------->
     <!-----------Custom style------------------------>
-    
+
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link rel="stylesheet" href="{% static "css/download.css" %}">
     <link rel="stylesheet" href="{% static "css/about.css" %}">
-    
+
     <!-----x------Custom style---------x--------------->
 
     <!--------------------Custom Fontawsome--------------------------------->
@@ -56,7 +56,7 @@
                         <a href="/post_list">Blogs</a>
                     </li>
                     <li class="nav-link">
-                        <a href="/down">Download</a>
+                        <a href="/download">Download</a>
                     </li>
                     <li class="nav-link">
                         <a href="/about">About Us</a>
@@ -64,119 +64,202 @@
                 </ul>
             </div>
             <div class="social text-gray">
-                <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i class="fab fa-stack-overflow"></i></a>
-                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav>
-    <!------x---------Navigation-------------x---------->
-
-<!-----------------------Main Site Section------------------------->
-<div style="text-align:center">
-    <h2>Free windows software</h2>
-    <p>It is applicable for all windows version.</p>
-  </div>
-  
-  
-  <!-- Clarity Section -->
-  <div class="container" style="background-color:#f1f1f1">
-    <div class="row">
-      <div class="column-34">
-        <h1 class="dxlarge-font"><b>Step-1-></b></h1>
-        <img src="{% static "images/softimage/file.png" %}" alt="App" width="900" height="750">
-      </div>
-      <div class="column-67">
-        <h1 class="dlarge-font" style="color:rgb(107, 78, 78);"><b>windows xp <br> windows 7 <br> windows 10</b><br></h1>
-      </div>
-    </div>
-    <div class="row">
-        <div class="column-34">
-          <img src="{% static "images/softimage/file.png" %}" alt="App" width="900" height="750">
-        </div>
-        <div class="column-67">
-          <h1 class="dxlarge-font"><b>Documentation</b></h1>
-          <h1 class="dlarge-font" style="color:rgb(107, 78, 78);"><b>windows xp windows 7 windows 10</b></h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column-34">
-          <img src="{% static "images/softimage/file.png" %}" alt="App" width="900" height="750">
-        </div>
-        <div class="column-67">
-          <h1 class="dxlarge-font"><b>Documentation</b></h1>
-          <h1 class="dlarge-font" style="color:rgb(107, 78, 78);"><b>windows xp windows 7 windows 10</b></h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column-34">
-          <img src="{% static "images/softimage/file.png" %}" alt="App" width="900" height="750">
-        </div>
-        <div class="column-67">
-          <h1 class="dxlarge-font"><b>Documentation</b></h1>
-          <h1 class="dlarge-font" style="color:rgb(107, 78, 78);"><b>windows xp windows 7 windows 10</b></h1>
-        </div>
-      </div>
-  </div> 
-  
-<!-----------x------------Main Site Section----------------x--------->
-  <!--------------------------------Footer----------------------------->
-  <footer class="footer">
-    <div class="container">
-        <div class="about-us" data-aos="fade-right" data-aos-delay="200">
-            <h2>About us</h2>
-            <p>Rajan Singh</p>
-            <p>rajan.nit.cs@gmail.com</p>
-
-        </div>
-        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
-            <h2>Newsletter</h2>
-            <p>Stay update with our latest</p>
-            <form method="POST">
-                <div class="form-element">
-                    {%csrf_token%}
-                    <input type="text" placeholder="Email" name="mailid">
-                    <button type="submit" class="pointer"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </form>
-
-        </div>
-        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-            <h2>Twitter</h2>
-            <div class="flex-row">
-                {%for post in post_list %}
-                <img src="{{post.Image.url}}" alt="instagram1">
-                {%endfor%}
-            </div>
-
-        </div>
-        <div class="follow" data-aos="fade-left" data-aos-delay="200">
-            <h2>Follow us</h2>
-            <p>Let us be Social</p>
-            <div>
                 <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
                         class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
                         class="fab fa-stack-overflow"></i></a>
-                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber"
-                    target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!------x---------Navigation-------------x---------->
+
+    <!-----------------------Main Site Section------------------------->
+    <div style="text-align:center">
+        <h2>File manager softwear Documentation</h2>
+        <p>It is applicable for all windows version.</p>
+    </div>
+
+<!--------------------- The App Section ------------------------------->
+<div class="container">
+    <div class="row">
+      <div class="column-66">
+        <h1 class="xlarge-font"><b>File manager </b></h1>
+        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why use it?</b></h1>
+        <p><span style="font-size:36px">This softwear is manage all type of file.</span>you can manage your windows file very easy way with the help of this softwear.This softwear is manage all type of windows file .check the Documentation for more help.</p>
+        <button class="button"><a href="https://drive.google.com/open?id=1cpZCgDvKaF16EpZ-KaydbWvY3PRQ7AD6" download>
+            Download Application</a></button>
+      </div>
+      <div class="column-33">
+          <img src="{% static "images/softimage/file.ico" %}" width="335" height="471">
+      </div>
+    </div>
+  </div>
+  <!-----------x------------ The App Section ---------x-------------->
+    <!------------------------------------ Clarity Section ---------------------------------------------->
+    <div class="container" style="background-color:#f1f1f1">
+        <div class="row">
+            <div class="column-34">
+                <h1 class="dxlarge-font"><b>Step:1</b></h1>
+                <img src="{% static "images/File_manager/1.png" %}" alt="App" width="900" height="750">
+            </div>
+            <div class="column-67">
+                <h1 class="dlarge-font" style="color:rgb(107, 78, 78);"><b><br>You can download this softwear free from <a href="http://www.matrixsoftsolutions.com">www.matrixsoftsolutions.com</a> go on this site and go to download section and you can download easily.</b><br></h1>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:2</b></h1>
+                    <img src="{% static "images/File_manager/2.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">Click The down Arrow key and download the softwear zip file.<br> windows
+                            10</b><br></h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:3</b></h1>
+                    <img src="{% static "images/File_manager/3.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">You must have to unzip the file.click right tap on your mouse and select Extract file options.if your window does not have Extract softwear then you can your any zip softwear for unzip the file.</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:4</b></h1>
+                    <img src="{% static "images/File_manager/4.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">After unzip the file click double tab and open the file and go to dist folder and click double tab on the file.exe file and click next at last click finish</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:5</b></h1>
+                    <img src="{% static "images/File_manager/5.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">For createing shotcut .Go on build file and create shotcut</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:6</b></h1>
+                    <img src="{% static "images/File_manager/6.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">And open the file manager softwear and Arranage your file.</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:7</b></h1>
+                    <img src="{% static "images/File_manager/7.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">Select the that folder path that you should Arrange.</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:8</b></h1>
+                    <img src="{% static "images/File_manager/8.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">Your file Arrangement have done. You see in That folder what your chouse there are some new file have created in the file your data have saved.</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:9</b></h1>
+                    <img src="{% static "images/File_manager/9.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">If you not like this much arrengment you can alson undo this.</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="column-34">
+                    <h1 class="dxlarge-font"><b>Step:10</b></h1>
+                    <img src="{% static "images/File_manager/10.png" %}" alt="App" width="900" height="750">
+                </div>
+                <div class="column-67">
+                    <h1 class="dlarge-font" style="color:rgb(107, 78, 78);">Done All The Arrengement.</h1>
+                </div>
             </div>
         </div>
     </div>
-    <div class="rights flex-row">
-        <h4 class="text-gray">
-            Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
-            <a href="" target="_black"><i class="fab fa-youtube"></i>
-            </a>
-        </h4>
-    </div>
-    <div class="move-up">
-        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
-    </div>
-</footer>
-<!--------x------------------------Footer--------------x--------------->
+    <!--=============x==========Clarity Section------------------x----------- -->
+
+    <!-----------x------------Main Site Section----------------x--------->
+    <!--------------------------------Footer----------------------------->
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Rajan Singh</p>
+                <p>rajan.nit.cs@gmail.com</p>
+
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <form method="POST">
+                    <div class="form-element">
+                        {%csrf_token%}
+                        <input type="text" placeholder="Email" name="mailid">
+                        <button type="submit" class="pointer"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Twitter</h2>
+                <div class="flex-row">
+                    {%for post in post_list %}
+                    <img src="{{post.Image.url}}" alt="instagram1">
+                    {%endfor%}
+                </div>
+
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
+                            class="fab fa-stack-overflow"></i></a>
+                    <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber"
+                        target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
+                <a href="" target="_black"><i class="fab fa-youtube"></i>
+                </a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+    <!--------x------------------------Footer--------------x--------------->
 
 
     <!-------- jquery library file--------------------->
