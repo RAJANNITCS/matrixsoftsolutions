@@ -178,7 +178,7 @@ def soft_detail(request):
         my_list.append(comments)
        
     my_dic={i:my_list[i] for i in range(0,len(my_list))}   
-    print(my_dic)
+   
     tag = Tag.objects.all()
     paginator=Paginator(post_list,6)
     page_number=request.GET.get('page')
@@ -209,7 +209,7 @@ def soft_detail1(request):
         my_list.append(comments)
        
     my_dic={i:my_list[i] for i in range(0,len(my_list))}   
-    print(my_dic)
+    
     tag = Tag.objects.all()
     paginator=Paginator(post_list,6)
     page_number=request.GET.get('page')
