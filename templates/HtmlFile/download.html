@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="{% static "css/aos.css" %}">
     <!-------x---------Aos library---------------x-------->
     <!-----------Custom style------------------------>
-    
+
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link rel="stylesheet" href="{% static "css/download.css" %}">
     <link rel="stylesheet" href="{% static "css/about.css" %}">
-    
+
     <!-----x------Custom style---------x--------------->
 
     <!--------------------Custom Fontawsome--------------------------------->
@@ -64,139 +64,150 @@
                 </ul>
             </div>
             <div class="social text-gray">
-                <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i class="fab fa-stack-overflow"></i></a>
-                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav>
-    <!------x---------Navigation-------------x---------->
-
-<!-----------------------Main Site Section------------------------->
-
-<div style="text-align:center">
-    <h2>Free windows software</h2>
-    <p>It is applicable for all windows version.</p>
-  </div>
-  
-  <!-- The App Section -->
-  <div class="container">
-    <div class="row">
-      <div class="column-66">
-        <h1 class="xlarge-font"><b>File manager </b></h1>
-        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why use it?</b></h1>
-        <p><span style="font-size:36px">This softwear is manage all type of file.</span>you can manage your windows file very easy way with the help of this softwear.This softwear is manage all type of windows file .check the Documentation for more help</p>
-        <button class="button"><a href="https://drive.google.com/open?id=1cpZCgDvKaF16EpZ-KaydbWvY3PRQ7AD6" download>
-            Download Application</a></button>
-      </div>
-      <div class="column-33">
-          <img src="{% static "images/softimage/file.ico" %}" width="335" height="471">
-      </div>
-    </div>
-  </div>
-  
-  <!-- Clarity Section -->
-  <div class="container" style="background-color:#f1f1f1">
-    <div class="row">
-      <div class="column-33">
-        <img src="{% static "images/file_manager/17.png" %}" alt="App" width="500" height="550">
-      </div>
-      <div class="column-66">
-        <h1 class="xlarge-font"><b>Documentation</b></h1>
-        <h1 class="large-font" style="color:rgb(107, 78, 78);"><b>windows xp windows 7 windows 10</b></h1>
-        <p><span style="font-size:24px">Manage your desktop file with one click.</span>you can manage your desktop file with the help of the file manage software</p>
-        <button class="button" style="background-color:red"><a href="/fileManager">Read More</a></button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- The App Section -->
-  <div class="container">
-    <div class="row">
-      <div class="column-66">
-        <h1 class="xlarge-font"><b>Vpad</b></h1>
-        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why use it?</b></h1>
-        <p><span style="font-size:36px">Very lightwight Notepad.</span>This is very lightwight Notepad for make your notes attractive.it have daly use Notepad features.</p>
-        <button class="button"><a href="https://drive.google.com/open?id=1UzaQRE_sZZDKCwswIoD9A-V6c-lI2Nyg" download>
-          Download Application</a></button>
-      </div>
-      <div class="column-33">
-          <img src="{% static "images/softimage/icon.ico" %}" width="335" height="471" >
-      </div>
-    </div>
-  </div>
-  <div class="container" style="background-color:#f1f1f1">
-    <div class="row">
-      <div class="column-33">
-        <img src="{% static "images/softimage/note1.png" %}" alt="App" width="500" height="550">
-      </div>
-      <div class="column-66">
-        <h1 class="xlarge-font"><b>Documentation</b></h1>
-        <h1 class="large-font" style="color:rgb(107, 78, 78);"><b>windows xp windows 7 windows 10</b></h1>
-        <p><span style="font-size:24px">write samething with lightwight Notepad.</span>This Notepad have all type of daly use writeing features ,you can also use various theme and it have features for changing color and font</p>
-        <button class="button" style="background-color:red"><a href="/vpadNotepad">Read More</a></button>
-      </div>
-    </div>
-  </div>
-
-<!-----------x------------Main Site Section----------------x--------->
-  <!--------------------------------Footer----------------------------->
-  <footer class="footer">
-    <div class="container">
-        <div class="about-us" data-aos="fade-right" data-aos-delay="200">
-            <h2>About us</h2>
-            <p>Rajan Singh</p>
-            <p>rajan.nit.cs@gmail.com</p>
-
-        </div>
-        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
-            <h2>Newsletter</h2>
-            <p>Stay update with our latest</p>
-            <form method="POST">
-                <div class="form-element">
-                    {%csrf_token%}
-                    <input type="text" placeholder="Email" name="mailid">
-                    <button type="submit" class="pointer"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </form>
-
-        </div>
-        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-            <h2>Twitter</h2>
-            <div class="flex-row">
-                {%for post in post_list %}
-                <img src="{{post.Image.url}}" alt="instagram1">
-                {%endfor%}
-            </div>
-
-        </div>
-        <div class="follow" data-aos="fade-left" data-aos-delay="200">
-            <h2>Follow us</h2>
-            <p>Let us be Social</p>
-            <div>
                 <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
                         class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
                         class="fab fa-stack-overflow"></i></a>
-                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber"
-                    target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!------x---------Navigation-------------x---------->
+
+    <!-----------------------Main Site Section------------------------->
+
+    <div style="text-align:center">
+        <h2>Free windows software</h2>
+        <p>It is applicable for all windows version.</p>
+    </div>
+
+    <!-- The App Section -->
+    <div class="container">
+        <div class="row">
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>File manager </b></h1>
+                <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why use it?</b></h1>
+                <p><span style="font-size:36px">This softwear is manage all type of file.</span>you can manage your
+                    windows file very easy way with the help of this softwear.This softwear is manage all type of
+                    windows file .check the Documentation for more help</p>
+                <button class="button"><a href="https://drive.google.com/open?id=1cpZCgDvKaF16EpZ-KaydbWvY3PRQ7AD6"
+                        download>
+                        Download Application</a></button>
+            </div>
+            <div class="column-33">
+                <img src="{% static "images/softimage/file.ico" %}" width="335" height="471">
             </div>
         </div>
     </div>
-    <div class="rights flex-row">
-        <h4 class="text-gray">
-            Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
-            <a href="" target="_black"><i class="fab fa-youtube"></i>
-            </a>
-        </h4>
+
+    <!-- Clarity Section -->
+    <div class="container" style="background-color:#f1f1f1">
+        <div class="row">
+            <div class="column-33">
+                <img src="{% static "images/file_manager/17.png" %}" alt="App" width="500" height="550">
+            </div>
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>Documentation</b></h1>
+                <h1 class="large-font" style="color:rgb(107, 78, 78);"><b>windows xp windows 7 windows 10</b></h1>
+                <p><span style="font-size:24px">Manage your desktop file with one click.</span>you can manage your
+                    desktop file with the help of the file manage software</p>
+                <button class="button" style="background-color:red"><a href="/fileManager">Read More</a></button>
+            </div>
+        </div>
     </div>
-    <div class="move-up">
-        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+
+    <!-- The App Section -->
+    <div class="container">
+        <div class="row">
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>Vpad</b></h1>
+                <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why use it?</b></h1>
+                <p><span style="font-size:36px">Very lightwight Notepad.</span>This is very lightwight Notepad for make
+                    your notes attractive.it have daly use Notepad features.</p>
+                <button class="button"><a href="https://drive.google.com/open?id=1UzaQRE_sZZDKCwswIoD9A-V6c-lI2Nyg"
+                        download>
+                        Download Application</a></button>
+            </div>
+            <div class="column-33">
+                <img src="{% static "images/softimage/icon.ico" %}" width="335" height="471">
+            </div>
+        </div>
     </div>
-</footer>
-<!--------x------------------------Footer--------------x--------------->
+    <div class="container" style="background-color:#f1f1f1">
+        <div class="row">
+            <div class="column-33">
+                <img src="{% static "images/softimage/note1.png" %}" alt="App" width="500" height="550">
+            </div>
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>Documentation</b></h1>
+                <h1 class="large-font" style="color:rgb(107, 78, 78);"><b>windows xp windows 7 windows 10</b></h1>
+                <p><span style="font-size:24px">write samething with lightwight Notepad.</span>This Notepad have all
+                    type of daly use writeing features ,you can also use various theme and it have features for changing
+                    color and font</p>
+                <button class="button" style="background-color:red"><a href="/vpadNotepad">Read More</a></button>
+            </div>
+        </div>
+    </div>
+
+    <!-----------x------------Main Site Section----------------x--------->
+    <!--------------------------------Footer----------------------------->
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Rajan Singh</p>
+                <p>rajan.nit.cs@gmail.com</p>
+
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <form method="POST">
+                    <div class="form-element">
+                        {%csrf_token%}
+                        <input type="text" placeholder="Email" name="mailid">
+                        <button type="submit" class="pointer"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Twitter</h2>
+                <div class="flex-row">
+                    {%for post in post_list %}
+                    <img src="{{post.Image.url}}" alt="instagram1">
+                    {%endfor%}
+                </div>
+
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
+                            class="fab fa-stack-overflow"></i></a>
+                    <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber"
+                        target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
+                <a href="" target="_black"><i class="fab fa-youtube"></i>
+                </a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+    <!--------x------------------------Footer--------------x--------------->
 
 
     <!-------- jquery library file--------------------->

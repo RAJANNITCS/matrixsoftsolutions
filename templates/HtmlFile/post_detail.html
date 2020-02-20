@@ -61,10 +61,13 @@
                 </ul>
             </div>
             <div class="social text-gray">
-                <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i class="fab fa-stack-overflow"></i></a>
-                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
+                        class="fab fa-stack-overflow"></i></a>
+                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
             </div>
         </div>
     </nav>
@@ -73,189 +76,127 @@
     <!-----------------------Main Site Section------------------------->
     <main>
 
-                <!------------------------Site Content----------------------->
-                <section class="container">
-                    <div class="site-content">
-                        <div class="posts">
-                            <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="post-image">
-                                    <div>
-                                        <img src="{% static "images/Blog-post/blog3.png" %}" class="img" alt="blog1">
-                                    </div>
-                                    <div class="post-info">
-                                        <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author|title}}</span>
-                                        <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.publish}}</span>
-                                        <span>{{comments.count}} Commets</span>
-                                    </div>
-                                </div>
-                                <div class="post-title">
-                                    <a href="#">{{post.title}}</a>
-                                    <p>{{post.body|linebreaks}}
-                                    </p>
-                                    <br><br><br>  
-                                </div>
-                                 {% with comments.count as comments_count%}
-                                 <h2>{{comments_count}} Comment{{comments_count|pluralize}}</h2>
-                                 {%endwith%}
-                                 {%if comments%}
-                                 {%for comment in comments%}
-                                    <p>Comment{{forloop.counter}} by {{comment.name}} on {{comment.created}}</p> 
-                                      {{comment.body|linebreaks}}
-                                {%endfor%}
-                                {%else%}
-                                <p>There are no comments yet!!!</p>
-                                {%endif%}
-                                {%if csubmit%}
-                                   <h2>Your Comment Added Successfully</h2>
-                                   {%else%}
-                                   <form method="POST">
-                                       {{form.as_p}}
-                                       {%csrf_token%}
-                                       <input type="submit" name="" value="Submit Comment">
-                                   </form>
-                                   {%endif%}
+        <!------------------------Site Content----------------------->
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="{{post.Image.url}}" class="img" alt="blog1">
                             </div>
-                            
+                            <div class="post-info">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author|title}}</span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.publish}}</span>
+                                <span>{{comments.count}} Commets</span>
+                            </div>
                         </div>
-                        <aside class="sidebar">
-                            <div class="popular-post">
-                                <h2>Popular Post</h2>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="200">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-1.jpg" %}" class="img" alt="blog1">
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="300">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-2.jpg" %}" class="img" alt="blog1">
-        
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="400">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-3.jpg" %}" class="img" alt="blog1">
-        
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="500">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-4.jpg" %}" class="img" alt="blog1">
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                                <div class="post-content" data-aos="flip-up" data-aos-delay="600">
-                                    <div class="post-image">
-                                        <div>
-                                            <img src="{% static "images/popular-post/m-blog-5.jpg" %}" class="img" alt="blog1">
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
-                                                2019</span>
-                                            <span>2 Commets</span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#">New data recording system to better analyse road accidents</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="popular-tags">
-                                <h2>Popular Tags</h2>
-                                <div class="tags flex-row">
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="200">technology</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="300">travel</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="400">illustration</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="500">design</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="600">lifestyle</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="700">love</span>
-                                    <span class="tag" data-aos="flip-up" data-aos-delay="800">project</span>
-                                </div>
-                            </div>
-                        </aside>
+                        <div class="post-title">
+                            <a href="#">{{post.title}}</a>
+                            <p>{{post.body|linebreaks}}
+                            </p>
+                            <br><br><br>
+                        </div>
+                        {% with comments.count as comments_count%}
+                        <h2>{{comments_count}} Comment{{comments_count|pluralize}}</h2>
+                        {%endwith%}
+                        {%if comments%}
+                        {%for comment in comments%}
+                        <p>Comment{{forloop.counter}} by {{comment.name}} on {{comment.created}}</p>
+                        {{comment.body|linebreaks}}
+                        {%endfor%}
+                        {%else%}
+                        <p>There are no comments yet!!!</p>
+                        {%endif%}
+                        {%if csubmit%}
+                        <h2>Your Comment Added Successfully</h2>
+                        {%else%}
+                        <form method="POST">
+                            {{form.as_p}}
+                            {%csrf_token%}
+                            <input type="submit" name="" value="Submit Comment">
+                        </form>
+                        {%endif%}
                     </div>
-                </section>
-                <!------------x------------Site Content------------------x----->
-        </main>
+
+                </div>
+                <aside class="sidebar">
+                    <div class="popular-post">
+                        <h2>Popular Post</h2>
+                        {%for post in latest_posts %}
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="{{post.Image.url}}" class="img" alt="blog1">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i
+                                            class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.publish}}</span>
+                                    <span>{{mydic.1}}</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                            </div>
+                        </div>
+                        {%endfor%}
+                        <div class="popular-tags">
+                            <h2>Popular Tags</h2>
+                            <div class="tags flex-row">
+                                {%for tag in tag|slice:":15"%}
+                                <span class="tag" data-aos="flip-up" data-aos-delay="100"><a
+                                        href="/post_list">{{tag.name}}</a></span>
+                                {%endfor%}
+                            </div>
+                        </div>
+                </aside>
+            </div>
+        </section>
+        <!------------x------------Site Content------------------x----->
+    </main>
     <!-----------------------Main Site Section------------------------->
 
     <!--------------------------------Footer----------------------------->
-     <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="about-us" data-aos="fade-right" data-aos-delay="200">
                 <h2>About us</h2>
                 <p>Rajan Singh</p>
                 <p>rajan.nit.cs@gmail.com</p>
-                
+
             </div>
             <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
                 <h2>Newsletter</h2>
                 <p>Stay update with our latest</p>
-                <div class="form-element">
-                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
-                </div>
+                <form method="POST">
+                    <div class="form-element">
+                        {%csrf_token%}
+                        <input type="text" placeholder="Email" name="mailid">
+                        <button type="submit" class="pointer"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </form>
+
             </div>
             <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-                <h2>Instagram</h2>
+                <h2>Twitter</h2>
                 <div class="flex-row">
-                    <img src="{% static "images/instagram/thumb-card3.png" %}" alt="instagram1">
-                    <img src="{% static "images/instagram/thumb-card4.png" %}" alt="instagram2">
-                    <img src="{% static "images/instagram/thumb-card5.png" %}" alt="instagram3">
+                    {%for post in post_list %}
+                    <img src="{{post.Image.url}}" alt="instagram1">
+                    {%endfor%}
                 </div>
-                <div class="flex-row">
-                    <img src="{% static "images/instagram/thumb-card4.png" %}" alt="instagram4">
-                    <img src="{% static "images/instagram/thumb-card5.png" %}" alt="instagram5">
-                    <img src="{% static "images/instagram/thumb-card6.png" %}" alt="instagram6">
-                </div>
+
             </div>
             <div class="follow" data-aos="fade-left" data-aos-delay="200">
                 <h2>Follow us</h2>
                 <p>Let us be Social</p>
                 <div>
-                    <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i class="fab fa-stack-overflow"></i></a>
-                <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/rajan-singh-07585718a/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.github.com/RAJANNITCS" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://stackoverflow.com/users/10872180/rajan-singh" target="_blank"><i
+                            class="fab fa-stack-overflow"></i></a>
+                    <a href="https://www.youtube.com/channel/UCBBFYkAbW8nc31Gg00uH2Ng?view_as=subscriber"
+                        target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -263,7 +204,7 @@
             <h4 class="text-gray">
                 Copyright ©2019 All rights reserved | made by Matrixsoftsolutions
                 <a href="" target="_black"><i class="fab fa-youtube"></i>
-                   </a>
+                </a>
             </h4>
         </div>
         <div class="move-up">
@@ -271,7 +212,6 @@
         </div>
     </footer>
     <!--------x------------------------Footer--------------x--------------->
-
 
     <!-------- jquery library file--------------------->
     <script src="{% static "js/jquery3.4.1.min.js"%}"></script>
